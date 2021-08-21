@@ -1,0 +1,52 @@
+.App {
+  background: white;
+  display: flex;
+
+  margin: 1em;
+  
+  justify-content: center;
+  min-height: 100vh;
+  
+}
+
+/*Defaults*/
+
+button {
+  color: white;
+  font-weight: bold;
+  background: #17255A;
+}
+
+
+/*Main Section*/
+
+.form-container {
+  background-color: #F5E2C8;
+  padding: 2em;
+  
+
+  width: 400px;
+  max-width: 90vh;
+}
+
+.form-container h1 {
+  padding-bottom: 1em;
+}
+
+.form-container fieldset {
+  display: flex;
+  flex-direction: column;
+}
+
+.form-container label {
+  font-weight: bold;
+}
+
+/* Media Queries */
+
+@media only screen and (min-width: 600px) {
+  .App {
+  
+    align-items: center;
+  }
+}
