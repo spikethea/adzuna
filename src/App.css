@@ -13,13 +13,19 @@ input {
   border-style: solid;
   border-radius: 0.2em;
 
-  -webkit-box-shadow: 1px 1px 5px 5px inset #0000006c; 
+  -webkit-box-shadow: 1px 1px 5px 5px inset #0000000a; 
   box-shadow: 1px 1px 5px 5px inset #0000000a;
 
   min-height: 2em;
 }
 
 textarea {
+  border-style: solid;
+  border-radius: 0.2em;
+
+  -webkit-box-shadow: 1px 1px 5px 5px inset #0000000a; 
+  box-shadow: 1px 1px 5px 5px inset #0000000a;
+
   min-height: 8em;
 }
 
@@ -40,23 +46,30 @@ button :active {
 
 /*Main Section*/
 
-
-
 .form-container form{
   background-color: white;
-  padding: 2em;
+  padding: 0.8em;
   
 
-  width: 400px;
+  width: 800px;
   max-width: 90vw;
   
   -webkit-box-shadow: 5px 5px 15px 5px #0000006c; 
   box-shadow: 5px 5px 15px 5px #0000006c;
+
+}
+
+.form-container section {
+  display: grid;
+
+  grid-gap: 1.5em;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  
 }
 
 .form-container article{
   background-color: white;
-  padding: 2em;
+  padding: 1em;
   
   text-align: center;
 
@@ -69,6 +82,7 @@ button :active {
 
 .form-container h1 {
   padding-bottom: 1em;
+  font-weight: 100;
 }
 
 .form-container fieldset {
@@ -78,6 +92,7 @@ button :active {
 }
 
 .form-container label {
+  font-size: 1.2em;
   font-weight: bold;
 }
 
@@ -86,11 +101,32 @@ button :active {
   color: red;
 }
 
+.info-text {
+  color: #535353;
+}
+
 /* Media Queries */
 
+
+/* Laptop/Desktop screen width */
 @media only screen and (min-width: 600px) {
   .App {
-  
     align-items: center;
   }
+
+  .form-container form {
+    padding: 2em;
+  }
 }
+
+ /* Ultra Small form-factor Phones/Devices */
+@media only screen and (max-width: 320px) {
+  .form-container form {
+    box-shadow: none;
+  }
+
+  .form-container section {
+    display: flex;
+    flex-direction: column;
+  }
+} 
