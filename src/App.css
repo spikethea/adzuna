@@ -1,8 +1,6 @@
 .App {
   background: white;
   display: flex;
-
-  margin: 1em;
   
   justify-content: center;
   min-height: 100vh;
@@ -15,6 +13,14 @@ button {
   color: white;
   font-weight: bold;
   background: #17255A;
+  padding: 0.6em 1em;
+  border-radius: 3em;
+  border-style: none;
+}
+
+button :active {
+  color: #17255A;
+  background: white;
 }
 
 
