@@ -1,13 +1,27 @@
 .App {
-  background: white;
+  background: #e9e1d5;
   display: flex;
   
   justify-content: center;
   min-height: 100vh;
-  
+  padding: 1em;
 }
 
 /*Defaults*/
+
+input {
+  border-style: solid;
+  border-radius: 0.2em;
+
+  -webkit-box-shadow: 1px 1px 5px 5px inset #0000006c; 
+  box-shadow: 1px 1px 5px 5px inset #0000000a;
+
+  min-height: 2em;
+}
+
+textarea {
+  min-height: 8em;
+}
 
 button {
   color: white;
@@ -26,13 +40,31 @@ button :active {
 
 /*Main Section*/
 
-.form-container {
-  background-color: #F5E2C8;
+
+
+.form-container form{
+  background-color: white;
   padding: 2em;
   
 
   width: 400px;
-  max-width: 90vh;
+  max-width: 90vw;
+  
+  -webkit-box-shadow: 5px 5px 15px 5px #0000006c; 
+  box-shadow: 5px 5px 15px 5px #0000006c;
+}
+
+.form-container article{
+  background-color: white;
+  padding: 2em;
+  
+  text-align: center;
+
+  width: 400px;
+  max-width: 90vw;
+  
+  -webkit-box-shadow: 5px 5px 15px 5px #0000006c; 
+  box-shadow: 5px 5px 15px 5px #0000006c;
 }
 
 .form-container h1 {
@@ -42,10 +74,16 @@ button :active {
 .form-container fieldset {
   display: flex;
   flex-direction: column;
+  margin-bottom: 1em;
 }
 
 .form-container label {
   font-weight: bold;
+}
+
+
+.error-message {
+  color: red;
 }
 
 /* Media Queries */

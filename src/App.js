@@ -61,6 +61,7 @@ function App() {
         }
       } else {
         setEmailAddressValid(false);
+        setFormErrors(f=> ({ ...f, emailAddress: "Email Address field must be non-empty"}));
       }
 
       //validation to check for the character length & non-empty value of notes
@@ -74,7 +75,7 @@ function App() {
         }
       } else {
         setNotesValid(true);
-        setFormErrors(f=> ({ ...f, notes: " notes must be a non-empty value."}));
+        setFormErrors(f=> ({ ...f, notes: " notes field must be non-empty"}));
       }
 
   }, [fullName, emailAddress, notes])
@@ -108,8 +109,7 @@ function App() {
   }
 
   const handleSubmit = (e)=> {
-    
-
+    // prevent the default action of HTML buttons
     e.preventDefault()
 
     //checking all the fields are valid
@@ -121,31 +121,47 @@ function App() {
     }
   }
 
+  //function to handle resetting the form
+  const resetForm = () => {
+
+    // changing the state of the form back to its intial value
+    setFormState(states.UNFINISHED);
+
+
+    //resetting the fields back to empty strings
+    setFullName('');
+    setNotes('');
+    setEmailAddress('');
+  }
 
   return (
     <div className="App">
       <header className="App-header"></header>
       <section className="form-container">
       {formState === states.SUBMITTED ? // (using ternary operators) conditionally render the component depending on the validation success
-      <h1>Thank You!</h1>
+      <article>
+        <h1>Thank You!</h1>
+        <p>Your account details have been submitted successfully</p>
+        <button onClick={resetForm}>Resubmit</button>
+      </article>
       : // render the 
       <form onSubmit={(e) => handleSubmit(e)}>
         <h1>Adzuna Form</h1>
           <fieldset>
             <label htmlFor="fname">Full Name:</label>
             <input type="text" id="fname" name="fname" onChange={(e)=> validateField('fullName', e)} value={fullName}/>
-            {formState === states.ERROR ? <p>{formErrors.fullName}</p>: null}
+            {formState === states.ERROR ? <p className="error-message">{formErrors.fullName}</p>: null}
           </fieldset>
           <fieldset>
             <label htmlFor="fname">Email Address:</label>
             <input type="email" id="email" name="email" onChange={(e)=> validateField('emailAddress', e)} value={emailAddress}/>
-            {formState === states.ERROR ? <p>{formErrors.emailAddress}</p>: null}
+            {formState === states.ERROR ? <p className="error-message">{formErrors.emailAddress}</p>: null}
           </fieldset>
           <fieldset>
             <label htmlFor="fname">Notes:</label>
             <textarea type="notes" id="notes" onChange={(e) => validateField('notes', e)} value={notes}/>
-            {formState === states.ERROR ? <p>{formErrors.notes}</p>: null}
-            <p>{notes.length} character(s)</p>
+            {formState === states.ERROR ? <p className="error-message">{formErrors.notes}</p>: null}
+            <p >{notes.length} character(s)</p>
           </fieldset>
           <button type="submit" >Submit</button>
         </form>
